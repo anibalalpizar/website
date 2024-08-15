@@ -14,7 +14,9 @@ const SOCIAL_ICONS: SocialIcon = {
 <Section>
   <div class="container">
     <div class="info">
-      <h1>{name}</h1>
+      <a href="/" target="_self" rel="noopener noreferrer">
+        <h1>{name}</h1>
+      </a>
       <div class="buttons">
         <div class="social-icons">
           <a
@@ -54,7 +56,9 @@ const SOCIAL_ICONS: SocialIcon = {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
+    margin: 2rem 0;
+
+    padding: 10px 0 0px 0;
   }
 
   .info {
@@ -63,6 +67,24 @@ const SOCIAL_ICONS: SocialIcon = {
     align-items: center;
     flex-grow: 1;
     justify-content: space-between;
+    gap: 1rem;
+
+    a {
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #333;
+      text-decoration: none;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 4px;
+    }
+
+    a:hover {
+      border-radius: 0px;
+      background: #E5E7EB;
+    }
   }
 
   h1 {
@@ -79,27 +101,9 @@ const SOCIAL_ICONS: SocialIcon = {
   .social-icons {
     display: flex;
     align-items: center;
-
-    a {
-      font-size: 0.8rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: #333;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
-      border-radius: 6px;
-      padding: 4px;
-    }
-
+  
     .about-link {
       margin-right: 1rem;
-    }
-
-    a:hover {
-      border-radius: 0;
-      background: #f3f4f6;
     }
   }
 
