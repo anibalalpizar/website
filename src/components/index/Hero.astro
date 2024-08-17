@@ -1,8 +1,8 @@
 ---
-import { basics } from '../data/cv.json'
-import Section from './Section.astro'
-import GitHub from '../icons/Github.astro'
-import { type SocialIcon } from '../types/types'
+import { basics } from '../../data/cv.json'
+import Section from '../commons/Section.astro'
+import GitHub from '../../icons/Github.astro'
+import { type SocialIcon } from '../../types/types'
 
 const { name, profiles } = basics
 
@@ -57,7 +57,6 @@ const SOCIAL_ICONS: SocialIcon = {
     justify-content: space-between;
     align-items: center;
     margin: 2rem 0;
-
     padding: 10px 0 0px 0;
   }
 
