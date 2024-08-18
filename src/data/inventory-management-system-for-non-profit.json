@@ -1,49 +1,41 @@
 {
-  "title": "Medical Prescription App Development for Lvel Solo: A Technical Overview",
-  "date": "December 15, 2022 (2y ago)",
-  "introduction": "Desktop application for managing medical prescriptions, targeting a client in Chile, a healthcare professional who previously relied on manual processes for creating prescriptions. The main objective was to optimize these processes, reducing inefficiencies and improving patient care.",
+  "title": "Custom Software Development for Hogar El Buen Samaritano: A Technical Summary",
+  "date": "March 26, 2023 (1y ago)",
+  "introduction": "This project involved the creation of a desktop application for inventory management at the Hogar El Buen Samaritano Association. This development was part of a university community service project (TCU) and was carried out by me and a team member. The main goal was to optimize the manual inventory control process, reduce errors, and improve the operational efficiency of the organization.",
   "sections": [
     {
-      "title": "Initial Challenges and Problems",
-      "content": "Prior to the development of the app, the client was facing several challenges. The manual process was not only slow, but also prone to human error, which could compromise the quality of patient care. The need to automate prescription creation and delivery, as well as improve management of patient and user data, was evident from the start.",
-      "image": "../2022/medical-prescription-app-development/initial-diagram.jpg",
-      "alt": "Diagram illustrating the initial challenges faced by the client, including manual prescription creation, data management issues, and the need for automation."
+      "title": "Requirements Analysis and Technology Selection",
+      "content": "From the beginning of the project, a thorough analysis of user requirements was conducted to understand the specific needs of the Association. Based on this analysis, technologies were selected that offered a balance between robustness and ease of maintenance. We opted to use C# for developing the desktop application due to its native integration with Windows, and SQLite as the database management system for its lightweight and simple configuration."
     },
     {
-      "title": "Choosing Architecture and Design Patterns",
-      "content": "I opted for a 3-Layer Architecture for this project, using design patterns such as Business Logic Layer (BLL) and Data Access Layer (DAL). This choice was not arbitrary; the separation of the business logic and data access layers was crucial to keeping the code modular and maintainable. With this structure, any changes to the business logic or the database could be handled in isolation, minimizing the impact on other parts of the system. Furthermore, this architecture allows for greater flexibility to scale the application in the future, by allowing different components to be developed and updated independently.",
-      "image": "../2022/medical-prescription-app-development/3-layers-diagram.jpg",
-      "alt": "Diagram illustrating the 3-Layer Architecture used in the application, showing the separation of Presentation, Business Logic, and Data Access layers."
+      "title": "User Interface Design",
+      "content": "One of the main challenges was designing an intuitive and accessible user interface for the association's staff, who did not necessarily have advanced technical knowledge. We implemented a user-centered approach, using minimalist design principles to reduce the learning curve and increase system adoption. The interface was built using Windows Forms, which offered the necessary flexibility to customize the user experience according to the organization's needs.",
+      "image": "../2023/inventory-management-system-for-non-profit/diagram.jpg",
+      "alt": "Image showing the application's user interface, highlighting the importance of user-friendly design in the development process."
     },
     {
-      "title": "Factory Pattern Implementation",
-      "content": "In addition, I implemented the Factory pattern to manage the creation of objects within the application. This pattern proved to be essential in simplifying the addition of new functionalities without the need to modify existing code. Implementing the Factory pattern facilitated the integration of new features in a fluid manner without affecting the stability of the system. This flexibility was key to the success of the project, allowing the application to evolve according to the client's changing needs without compromising its stability.",
-      "image": "../2022/medical-prescription-app-development/factory-diagram.jpg",
-      "alt": "Diagram illustrating the Factory pattern implementation in the application, showing how it simplifies the creation of objects and allows for easy addition of new functionalities.",
-      "imageSource": "https://refactoring.guru/design-patterns/factory-method"
+      "title": "State Management and Data Synchronization",
+      "content": "To ensure data consistency across different modules of the application, a state management system was implemented that centralizes data handling in a single source of truth. Additionally, a data synchronization mechanism was developed to allow operation in offline mode, storing changes locally and synchronizing them with the central database once the connection is restored."
+    },
+    {
+      "title": "Repository Pattern Implementation",
+      "content": "To decouple data access logic from business logic, the Repository pattern was implemented. This pattern provided effective abstraction between the database and the application, facilitating changes in the persistence layer without affecting other parts of the system. The implementation of the Repository pattern also made unit testing easier, allowing the use of mock objects to simulate database interactions.",
+      "image": "../2023/inventory-management-system-for-non-profit/diagram-db.jpg",
+      "alt": "Diagram showing the implementation of the Repository pattern in data access management within the application.",
+      "imageSource": "https://www.veloxcore.com/repository-pattern-csharp-entity-framework/"
     },
     {
       "title": "Results and Benefits",
-      "content": "The development of this application brought with it multiple benefits. Automating the creation of prescriptions significantly reduced the time needed to complete this task, allowing the client to focus on other critical areas of their medical practice. Digitizing the process minimized human errors associated with manual methods, improving the accuracy of the prescriptions issued. In addition, more efficient and accurate management of prescriptions resulted in better patient care, with faster turnaround times and greater overall satisfaction. The implementation of this application not only optimized the client’s internal processes, but also contributed to a better experience for patients, reflecting a positive impact on the quality of the service offered.",
+      "content": "The development of this application not only met the stated objectives but also brought unexpected benefits. The automation of the inventory process significantly reduced response times during internal audits and improved the accuracy of financial reports. The association's staff reported a decrease in workload related to inventory management, allowing them to focus more on the organization's core activities.",
       "bullets": [
-        "Increased Efficiency: Automating prescription creation significantly reduced the time required to complete this task, allowing the client to focus on other critical areas of their medical practice.",
-        "Error Reduction: Digitizing the process minimized human errors associated with manual methods, which in turn improved the accuracy of the prescriptions issued.",
-        "Improved Patient Care: More efficient and accurate prescription management resulted in better patient care, with faster turnaround times and greater overall satisfaction."
+        "Time Optimization: Digitizing the inventory allowed for a reduction in the time spent on management, increasing operational efficiency.",
+        "Increased Accuracy: Automating the control process reduced common errors in manual inventory handling.",
+        "Audit Improvements: The accuracy and accessibility of data facilitated internal audit processes and improved transparency."
       ]
     },
     {
-      "title": "Key Learnings",
-      "content": "The development process was a valuable learning experience. Modularity turned out to be one of the most important aspects of the project; utilizing BLLs and DALs not only made code maintenance easier, but also allowed for scalability that would have been difficult to achieve with a monolithic structure. You will also learn the importance of designing with the end user in mind. Although technical solutions were crucial, customer adoption was highly dependent on the user-friendliness of the interface. This experience reaffirmed the need to balance technical complexity with simplicity in user interface design. Implementing a modular and flexible architecture allowed for not only an efficient solution for the present, but also a solid foundation for future extensions and improvements.",
-      "image": "../2022/medical-prescription-app-development/evidence-1.png",
-      "alt": "Image showing the user interface of the application, highlighting the importance of user-friendly design in the development process."
-    },
-    {
-      "title": "Future Improvements",
-      "content": "Although the project was successful, there is always room for improvement. An integration with electronic health record (EHR) systems would be a valuable addition, allowing for direct synchronization with patient medical records and further improving the efficiency of the system. Additionally, collecting and analyzing user feedback will be key to continuing to refine and improve the application, ensuring that it continues to meet the needs of the client and their patients. Implementing a feedback system will allow for areas of improvement to be identified and the application to be adapted to the changing demands of the medical environment.",
-      "bullets": [
-        "Integration with EHR Systems: A future iteration could include integration with electronic health record (EHR) systems, allowing for direct synchronization with patient medical records.",
-        "User Feedback Analysis: Collecting and analyzing user feedback will be key to refining and improving the application, ensuring that it continues to meet the needs of the client and their patients."
-      ]
+      "title": "Conclusions and Recommendations",
+      "content": "The experience gained during this project highlighted the importance of good planning and the proper selection of tools and technologies. The modularity of the code, along with the abstraction of data access logic, made the system easily maintainable and scalable. We recommend that future similar projects consider the importance of involving end users throughout the development process to ensure the final solution meets their expectations and needs."
     }
   ]
 }
