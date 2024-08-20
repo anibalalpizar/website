@@ -17,8 +17,12 @@ import { work } from '../../data/cv.json'
             <time class="timeline-date">{endYear}</time>
             <h3 class="timeline-title">{name}</h3>
             <p class="timeline-position">{position}</p>
-            <a href={`/${endYear}/${slug}`} class="read-more">
-              Read more
+            <a
+              href={`/${endYear}/${slug}`}
+              class="read-more"
+              aria-label={`Learn more about my position as ${position} at ${name}`}
+            >
+              Read more &rarr;
             </a>
           </li>
         )

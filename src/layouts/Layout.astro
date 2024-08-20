@@ -12,13 +12,31 @@ const { title } = Astro.props
   <head>
     <title>{title}</title>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta
+      name="description"
+      content={`Aníbal Alpizar is a software engineer and web developer based in Costa Rica. ${title}`}
+    />
     <meta name="viewport" content="width=device-width" />
+    <meta property="og:title" content={title} />
+    <meta
+      property="og:description"
+      content="Aníbal Alpizar is a software engineer and web developer based in Costa Rica."
+    />
+    <meta property="og:image" content="/logo.jpg" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta
+      name="twitter:description"
+      content="Aníbal Alpizar is a software engineer and web developer based in Costa Rica."
+    />
+    <meta name="twitter:image" content="/logo.jpg" />
     <link rel="icon" type="image/jpg" href="/logo.jpg" />
     <meta name="generator" content={Astro.generator} />
   </head>
   <body>
-    <Hero/>
+    <Hero />
     <slot />
   </body>
 </html>
