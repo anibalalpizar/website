@@ -19,7 +19,6 @@ import content from '../../data/internship-at-tech-solutions.json'
       </h1>
       <span class="date">{content.date}</span>
       <p>{content.introduction}</p>
-
       {
         content.sections.map((section) => (
           <section class="content-section">
@@ -60,19 +59,24 @@ import content from '../../data/internship-at-tech-solutions.json'
               </div>
             )}
             {section.video &&
+              Array.isArray(section.video) &&
               section.video.map((video) => (
                 <div class="video-container">
-                  <video controls>
-                    <source src={video.src} type={video.type} />
-                    Tu navegador no soporta la etiqueta de video.
-                  </video>
+                  <iframe
+                    width="560"
+                    height="315"
+                    src={video.src.replace('watch?v=', 'embed/')}
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  />
                   <p class="image-suggestion">{video.alt}</p>
                 </div>
               ))}
           </section>
         ))
       }
-
       <section class="content-section">
         {
           content.sections.find((sec) => sec.title === 'Mejoras Futuras') ? (

@@ -49,7 +49,7 @@
       "content": "The following video demonstrates the key features and functionality of the web application developed for the restaurant.",
       "video": [
         {
-          "src": "../2024/internship-at-tech-solutions/video-app.mp4",
+          "src": "https://www.youtube.com/watch?v=-894MRBJNGs",
           "type": "video/mp4",
           "alt": "(Note: The video text is in Spanish, as the application was designed for a Spanish-speaking audience.)"
         }
