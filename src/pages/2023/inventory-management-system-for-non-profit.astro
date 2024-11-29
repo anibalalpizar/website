@@ -1,15 +1,15 @@
 ---
-import Layout from '../../layouts/Layout.astro'
-import Section from '../../components/commons/Section.astro'
+import Layout from "../../layouts/Layout.astro";
+import Section from "../../components/commons/Section.astro";
 
-import content from '../../data/inventory-management-system-for-non-profit.json'
+import content from "../../data/inventory-management-system-for-non-profit.json";
 ---
 
 <Layout title={content.title}>
   <main>
     <Section>
       <h1>
-        {content.title.split('Hogar El Buen Samaritano')[0]}
+        {content.title.split("Hogar El Buen Samaritano")[0]}
         <a
           href="https://hogarbuensamaritano.org/"
           target="_blank"
@@ -17,7 +17,7 @@ import content from '../../data/inventory-management-system-for-non-profit.json'
         >
           Hogar El Buen Samaritano</a
         >
-        {content.title.split('Hogar El Buen Samaritano')[1]}
+        {content.title.split("Hogar El Buen Samaritano")[1]}
       </h1>
       <span class="date">{content.date}</span>
       <p>{content.introduction}</p>
@@ -32,7 +32,7 @@ import content from '../../data/inventory-management-system-for-non-profit.json'
                 <img
                   src={section.image}
                   alt={section.alt}
-                  class={index === 1 ? 'first-image' : ''}
+                  class={index === 1 ? "first-image" : ""}
                 />
               </div>
             )}
@@ -53,26 +53,26 @@ import content from '../../data/inventory-management-system-for-non-profit.json'
 
       <section class="content-section">
         {
-          content.sections.find((sec) => sec.title === 'Mejoras Futuras') ? (
+          content.sections.find((sec) => sec.title === "Mejoras Futuras") ? (
             <>
               <h2>
                 {
                   content.sections.find(
-                    (sec) => sec.title === 'Mejoras Futuras'
+                    (sec) => sec.title === "Mejoras Futuras"
                   )!.title
                 }
               </h2>
               <p>
                 {
                   content.sections.find(
-                    (sec) => sec.title === 'Mejoras Futuras'
+                    (sec) => sec.title === "Mejoras Futuras"
                   )!.content
                 }
               </p>
               <ul class="bullet-list">
                 {(
                   content.sections.find(
-                    (sec) => sec.title === 'Mejoras Futuras'
+                    (sec) => sec.title === "Mejoras Futuras"
                   )!.bullets || []
                 ).map((bullet) => (
                   <li>{bullet}</li>
@@ -91,32 +91,32 @@ import content from '../../data/inventory-management-system-for-non-profit.json'
     max-width: 800px;
     margin: 2rem auto;
     line-height: 1.6;
-    color: #1f2937;
   }
 
   h1 {
     font-size: 1.5rem;
-    color: #1f2937;
+    color: var(--text-main);
   }
 
   .highlight-link {
     text-decoration: underline;
-    color: #1f2937;
+    color: var(--text-main);
   }
 
   h2 {
     font-size: 1.3rem;
     margin-bottom: 0.75rem;
-    color: #1f2937;
+    color: var(--text-main);
   }
 
   p {
     margin-bottom: 1rem;
+    color: var(--text-secondary);
   }
 
   .date {
     font-size: 0.8rem;
-    color: #666666;
+    color: var(--text-secondary);
     margin-bottom: 1rem;
     display: block;
     padding-top: 0.2rem;
@@ -124,7 +124,7 @@ import content from '../../data/inventory-management-system-for-non-profit.json'
 
   .content-section {
     padding: 1rem;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--border-color);
   }
 
   .content-section:last-of-type {
@@ -133,14 +133,14 @@ import content from '../../data/inventory-management-system-for-non-profit.json'
 
   .bullet-list {
     font-size: 0.9rem;
-    color: #666666;
+    color: var(--text-secondary);
     line-height: 1.5;
     padding-left: 1.5rem;
     font-family:
       Menlo,
       Monaco,
       Lucida Console,
-      'Courier New',
+      "Courier New",
       Courier,
       monospace;
   }
@@ -152,7 +152,7 @@ import content from '../../data/inventory-management-system-for-non-profit.json'
 
   .image-suggestion {
     font-style: italic;
-    color: #7f8c8d;
+    color: var(--text-secondary);
     font-size: 0.7rem;
   }
 
