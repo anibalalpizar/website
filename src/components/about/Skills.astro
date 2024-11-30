@@ -1,8 +1,49 @@
 ---
-const skills = [
+import Card from "../commons/Card.astro";
+import Badge from "../commons/Badge.astro";
+
+import {
+  ReactIcon,
+  NextJSIcon,
+  AngularIcon,
+  TailwindCSSIcon,
+  TypeScriptIcon,
+  NodeJSIcon,
+  ExpressIcon,
+  NestJSIcon,
+  PostgreSQLIcon,
+  MongoDBIcon,
+  GitIcon,
+  DockerIcon,
+  AWSIcon,
+  LinuxIcon,
+  VSCodeIcon,
+} from "../../icons";
+
+const ICONS = {
+  React: ReactIcon,
+  "Next.js": NextJSIcon,
+  Angular: AngularIcon,
+  TailwindCSS: TailwindCSSIcon,
+  TypeScript: TypeScriptIcon,
+  "Node.js": NodeJSIcon,
+  Express: ExpressIcon,
+  NestJS: NestJSIcon,
+  PostgreSQL: PostgreSQLIcon,
+  MongoDB: MongoDBIcon,
+  Git: GitIcon,
+  Docker: DockerIcon,
+  AWS: AWSIcon,
+  Linux: LinuxIcon,
+  "VS Code": VSCodeIcon,
+};
+
+type IconKeys = keyof typeof ICONS;
+
+const skills: { category: string; items: IconKeys[] }[] = [
   {
     category: "Frontend",
-    items: ["React", "Next.js", "Astro", "TailwindCSS", "TypeScript"],
+    items: ["React", "Next.js", "Angular", "TailwindCSS", "TypeScript"],
   },
   {
     category: "Backend",
@@ -20,14 +61,20 @@ const skills = [
   <div class="skills-grid">
     {
       skills.map(({ category, items }) => (
-        <div class="skill-category">
+        <Card>
           <h3>{category}</h3>
-          <ul>
-            {items.map((item) => (
-              <li>{item}</li>
-            ))}
-          </ul>
-        </div>
+          <div class="skills-list">
+            {items.map((item) => {
+              const Icon = ICONS[item];
+              return (
+                <Badge>
+                  {Icon && <Icon />}
+                  <span>{item}</span>
+                </Badge>
+              );
+            })}
+          </div>
+        </Card>
       ))
     }
   </div>
@@ -52,47 +99,16 @@ const skills = [
     gap: 2rem;
   }
 
-  .skill-category {
-    background: var(--card-background);
-    padding: 1.5rem;
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
-    transition: all 0.3s ease;
-  }
-
-  .skill-category:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  }
-
-  [data-theme="dark"] .skill-category:hover {
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
-  }
-
   h3 {
     font-size: 1.2rem;
     margin-bottom: 1rem;
-    color: var(--text-secondary);
+    color: var(--text-main);
   }
 
-  ul {
+  .skills-list {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-  }
-
-  li {
-    background: var(--background);
-    color: var(--text-secondary);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-  }
-
-  li:hover {
-    transform: translateY(-2px);
-    color: var(--text-main);
   }
 
   @media (max-width: 768px) {
