@@ -11,6 +11,7 @@ import {
   ShadcnUIIcon,
   TypeScriptIcon,
   NestJSIcon,
+  GithubIcon,
 } from "../../icons";
 
 const projects = [
@@ -59,12 +60,32 @@ const projects = [
     {
       projects.map((project) => (
         <Card>
-          <h3>
-            <span class="icon">
-              <project.icon />
-            </span>
-            {project.title}
-          </h3>
+          <div class="project-header">
+            <div class="title-section">
+              <span class="icon">
+                <project.icon />
+              </span>
+              <h3>{project.title}</h3>
+            </div>
+            <div class="links">
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="View on GitHub"
+              >
+                <GithubIcon />
+              </a>
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Live Demo"
+              >
+                →
+              </a>
+            </div>
+          </div>
           <p>{project.description}</p>
           <div class="tech-stack">
             {project.technologies.map(({ icon: Icon, name }) => (
@@ -73,20 +94,6 @@ const projects = [
                 <span>{name}</span>
               </Badge>
             ))}
-          </div>
-          <div class="links">
-            <a href={project.url} target="_blank" rel="noopener noreferrer">
-              Live Demo →
-            </a>
-            {project.github && (
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub →
-              </a>
-            )}
           </div>
         </Card>
       ))
@@ -98,18 +105,27 @@ const projects = [
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
+    gap: 0.5em;
     margin-top: 1rem;
   }
 
-  h3 {
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .title-section {
     display: flex;
     align-items: center;
-    justify-content: left;
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: var(--text-main);
     gap: 0.5rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    color: var(--text-main);
+    margin: 0;
   }
 
   p {
@@ -123,26 +139,19 @@ const projects = [
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-bottom: 1rem;
   }
 
   .links {
     display: flex;
-    gap: 1rem;
+    gap: 0.75rem;
+    align-items: center;
   }
 
   .links a {
     color: var(--text-main);
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    opacity: 0;
-    transform: translateX(-10px);
-  }
-
-  :global(.card:hover) .links a {
-    opacity: 1;
-    transform: translateX(0);
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
   }
 
   .links a:hover {
