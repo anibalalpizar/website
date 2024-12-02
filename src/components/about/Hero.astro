@@ -4,6 +4,7 @@ import Section from "../commons/Section.astro";
 import WorldMap from "../../icons/WorldMap.astro";
 import Skills from "./Skills.astro";
 import Social from "./Social.astro";
+import { DownloadIcon } from "../../icons";
 
 const { label, location, summary } = basics;
 const { city, region } = location;
@@ -19,6 +20,10 @@ const { city, region } = location;
           <span>{city}, {region}</span>
         </div>
         <p class="label">{label}</p>
+        <a href="/Aníbal_CV.pdf" download class="download-cv">
+          Download CV
+          <DownloadIcon />
+        </a>
       </div>
       <Skills />
       <Social />
@@ -64,6 +69,25 @@ const { city, region } = location;
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;
+  }
+
+  .download-cv {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--button-background);
+    color: var(--button-text);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+  }
+
+  .download-cv:hover {
+    background-color: var(--button-hover-background);
+    transform: translateY(-2px);
   }
 
   .summary-grid {
