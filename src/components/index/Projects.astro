@@ -2,6 +2,7 @@
 import Section from "../commons/Section.astro";
 import Card from "../commons/Card.astro";
 import Badge from "../commons/Badge.astro";
+import DownloadsBadge from "../commons/DownloadsBadge.astro";
 import {
   MapIcon,
   XmlIcon,
@@ -12,9 +13,20 @@ import {
   TypeScriptIcon,
   NestJSIcon,
   GithubIcon,
+  NPMIcon,
 } from "../../icons";
 
 const projects = [
+  {
+    title: "env-protector",
+    description:
+      "A lightweight TypeScript package for validating environment variables, ensuring they are properly set and typed to prevent runtime errors.",
+    url: "https://www.npmjs.com/package/env-protector",
+    github: "https://github.com/anibalalpizar/env-protector",
+    icon: NPMIcon,
+    downloads: 150,
+    technologies: [{ icon: TypeScriptIcon, name: "TypeScript" }],
+  },
   {
     title: "API GEO CR",
     description: "API for Costa Rica's provinces, cantons, and districts.",
@@ -66,6 +78,9 @@ const projects = [
                 <project.icon />
               </span>
               <h3>{project.title}</h3>
+              {project.downloads && (
+                <DownloadsBadge downloads={project.downloads} />
+              )}
             </div>
             <div class="links">
               <a
