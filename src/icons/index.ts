@@ -55,3 +55,4 @@ export { default as XIcon } from "./X.astro";
 export { default as XmlIcon } from "./Xml.astro";
 export { default as ZodIcon } from "./Zod.astro";
 export { default as DownloadIcon } from "./Download.astro";
+export { default as NPMIcon } from "./NPM.astro";
