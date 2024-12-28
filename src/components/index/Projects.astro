@@ -67,7 +67,11 @@ const projects = [
 ];
 ---
 
-<Section title="Personal Projects">
+<Section>
+  <div class="section-header">
+    <h2>Personal Projects</h2>
+    <a href="/projects" class="more-link">More →</a>
+  </div>
   <div class="projects-grid">
     {
       projects.map((project) => (
@@ -117,6 +121,30 @@ const projects = [
 </Section>
 
 <style>
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .section-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--text-main);
+  }
+
+  .more-link {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .more-link:hover {
+    color: var(--text-main);
+  }
+
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
