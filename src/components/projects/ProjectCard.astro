@@ -1,0 +1,95 @@
+---
+import Badge from "../commons/Badge.astro"
+
+interface Props {
+  title: string
+  description: string
+  url: string
+  github: string
+  technologies: Array<{ icon: any; name: string }>
+}
+
+const { title, description, url, github, technologies } = Astro.props
+---
+
+<article class="project-card">
+  <div class="content">
+    <header>
+      <h3>{title}</h3>
+      <div class="links">
+        <a href={github} target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href={url} target="_blank" rel="noopener noreferrer">Demo →</a>
+      </div>
+    </header>
+    <p>{description}</p>
+    <footer>
+      {
+        technologies.map(({ icon: Icon, name }) => (
+          <Badge>
+            <Icon />
+            <span>{name}</span>
+          </Badge>
+        ))
+      }
+    </footer>
+  </div>
+</article>
+
+<style>
+  .project-card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    background-color: var(--card-background);
+    transition: all 0.3s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  [data-theme="dark"] .project-card:hover {
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+
+  .links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .links a {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .links a:hover {
+    color: var(--text-main);
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+
+  footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+</style>
