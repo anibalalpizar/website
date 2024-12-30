@@ -1,12 +1,13 @@
 ---
 import Badge from "../commons/Badge.astro"
+import { ICON_MAP, type IconName } from "../../utils/IconMap"
 
 interface Props {
   title: string
   description: string
   url: string
   github: string
-  technologies: Array<{ icon: any; name: string }>
+  technologies: Array<{ icon: string; name: string }>
 }
 
 const { title, description, url, github, technologies } = Astro.props
@@ -24,12 +25,15 @@ const { title, description, url, github, technologies } = Astro.props
     <p>{description}</p>
     <footer>
       {
-        technologies.map(({ icon: Icon, name }) => (
-          <Badge>
-            <Icon />
-            <span>{name}</span>
-          </Badge>
-        ))
+        technologies.map(({ icon, name }) => {
+          const Icon = ICON_MAP[icon as IconName]
+          return Icon ? (
+            <Badge>
+              <Icon />
+              <span>{name}</span>
+            </Badge>
+          ) : null
+        })
       }
     </footer>
   </div>
@@ -39,13 +43,13 @@ const { title, description, url, github, technologies } = Astro.props
   .project-card {
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    padding: 1.5rem;
+    padding: 1rem;
     background-color: var(--card-background);
     transition: all 0.3s ease;
   }
 
   .project-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-2px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   }
 
@@ -57,11 +61,11 @@ const { title, description, url, github, technologies } = Astro.props
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
   }
 
   h3 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin: 0;
   }
 
@@ -82,7 +86,7 @@ const { title, description, url, github, technologies } = Astro.props
   }
 
   p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     color: var(--text-secondary);
     font-size: 0.9rem;
   }
