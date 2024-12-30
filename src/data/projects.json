@@ -5,19 +5,19 @@
       "description": "A lightweight TypeScript package for validating environment variables, ensuring they are properly set and typed to prevent runtime errors.",
       "url": "https://www.npmjs.com/package/env-protector",
       "github": "https://github.com/anibalalpizar/env-protector",
-      "icon": "NPMIcon",
+      "icon": "NPM",
       "downloads": 250,
-      "technologies": [{ "icon": "TypeScriptIcon", "name": "TypeScript" }]
+      "technologies": [{ "icon": "TypeScript", "name": "TypeScript" }]
     },
     {
       "title": "API GEO CR",
       "description": "API for Costa Rica's provinces, cantons, and districts.",
       "url": "https://api-geo-cr.vercel.app",
       "github": "https://github.com/anibalalpizar/api-geo-cr",
-      "icon": "MapIcon",
+      "icon": "Map",
       "technologies": [
-        { "icon": "NestJSIcon", "name": "NestJS" },
-        { "icon": "TypeScriptIcon", "name": "TypeScript" }
+        { "icon": "NestJS", "name": "NestJS" },
+        { "icon": "TypeScript", "name": "TypeScript" }
       ]
     },
     {
@@ -25,12 +25,12 @@
       "description": "Easily convert JSON to XML with a modern UI.",
       "url": "https://json-to-xml.vercel.app",
       "github": "https://github.com/anibalalpizar/json-to-xml-converter",
-      "icon": "XmlIcon",
+      "icon": "XML",
       "technologies": [
-        { "icon": "NextJSIcon", "name": "Next.js" },
-        { "icon": "TailwindCSSIcon", "name": "TailwindCSS" },
-        { "icon": "ShadcnUIIcon", "name": "shadcn/ui" },
-        { "icon": "TypeScriptIcon", "name": "TypeScript" }
+        { "icon": "NextJS", "name": "Next.js" },
+        { "icon": "TailwindCSS", "name": "TailwindCSS" },
+        { "icon": "ShadcnUI", "name": "shadcn/ui" },
+        { "icon": "TypeScript", "name": "TypeScript" }
       ]
     },
     {
@@ -38,12 +38,12 @@
       "description": "Open-source landing page built with Next.js and Shadcn UI.",
       "url": "https://nextjs-shadcn-landing.vercel.app",
       "github": "https://github.com/anibalalpizar/nextjs-shadcn-landing",
-      "icon": "LandingIcon",
+      "icon": "Landing",
       "technologies": [
-        { "icon": "NextJSIcon", "name": "Next.js" },
-        { "icon": "TailwindCSSIcon", "name": "TailwindCSS" },
-        { "icon": "ShadcnUIIcon", "name": "shadcn/ui" },
-        { "icon": "TypeScriptIcon", "name": "TypeScript" }
+        { "icon": "NextJS", "name": "Next.js" },
+        { "icon": "TailwindCSS", "name": "TailwindCSS" },
+        { "icon": "ShadcnUI", "name": "shadcn/ui" },
+        { "icon": "TypeScript", "name": "TypeScript" }
       ]
     }
   ]
