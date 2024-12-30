@@ -10,13 +10,42 @@ import SearchBar from "../components/projects/SearchBar.astro"
   <main>
     <Section>
       <h1>Projects</h1>
-      <!-- <SearchBar /> -->
-      <div class="projects-grid">
+      <SearchBar />
+      <div class="projects-grid" id="projects-grid">
         {projects.map((project) => <ProjectCard {...project} />)}
       </div>
     </Section>
   </main>
 </Layout>
+
+<script>
+  const searchInput = document.querySelector("#search") as HTMLInputElement
+  const projectsGrid = document.querySelector("#projects-grid")
+
+  if (searchInput && projectsGrid) {
+    searchInput.addEventListener("input", (e) => {
+      const searchTerm = (e.target as HTMLInputElement).value.toLowerCase()
+      const projects = projectsGrid.children
+
+      Array.from(projects).forEach((project) => {
+        const title =
+          project.querySelector("h3")?.textContent?.toLowerCase() || ""
+        const description =
+          project.querySelector("p")?.textContent?.toLowerCase() || ""
+        const technologies = Array.from(project.querySelectorAll(".badge span"))
+          .map((span) => span.textContent?.toLowerCase())
+          .join(" ")
+
+        const isVisible =
+          title.includes(searchTerm) ||
+          description.includes(searchTerm) ||
+          technologies.includes(searchTerm)
+
+        ;(project as HTMLElement).style.display = isVisible ? "block" : "none"
+      })
+    })
+  }
+</script>
 
 <style>
   main {
@@ -34,7 +63,7 @@ import SearchBar from "../components/projects/SearchBar.astro"
   .projects-grid {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
   }
 
   @media (max-width: 768px) {
