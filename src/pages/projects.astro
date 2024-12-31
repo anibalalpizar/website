@@ -4,6 +4,8 @@ import Section from "../components/commons/Section.astro"
 import ProjectCard from "../components/projects/ProjectCard.astro"
 import { projects } from "../data/projects.json"
 import SearchBar from "../components/projects/SearchBar.astro"
+import CategoryFilter from "../components/projects/CategoryFilter.astro"
+import { getProjectCategories } from "../utils/getProjectCategories"
 ---
 
 <Layout title="Projects - Aníbal Alpízar">
@@ -11,8 +13,18 @@ import SearchBar from "../components/projects/SearchBar.astro"
     <Section>
       <h1>Projects</h1>
       <SearchBar />
+      <CategoryFilter />
       <div class="projects-grid" id="projects-grid">
-        {projects.map((project) => <ProjectCard {...project} />)}
+        {
+          projects.map((project) => (
+            <div
+              class="project-item"
+              data-categories={getProjectCategories(project)}
+            >
+              <ProjectCard {...project} />
+            </div>
+          ))
+        }
       </div>
     </Section>
   </main>
@@ -21,30 +33,54 @@ import SearchBar from "../components/projects/SearchBar.astro"
 <script>
   const searchInput = document.querySelector("#search") as HTMLInputElement
   const projectsGrid = document.querySelector("#projects-grid")
+  const filterButtons = document.querySelectorAll(".filter-button")
+  let currentCategory = "all"
+  let searchTerm = ""
 
-  if (searchInput && projectsGrid) {
-    searchInput.addEventListener("input", (e) => {
-      const searchTerm = (e.target as HTMLInputElement).value.toLowerCase()
-      const projects = projectsGrid.children
+  function updateProjectVisibility() {
+    if (!projectsGrid) return
 
-      Array.from(projects).forEach((project) => {
-        const title =
-          project.querySelector("h3")?.textContent?.toLowerCase() || ""
-        const description =
-          project.querySelector("p")?.textContent?.toLowerCase() || ""
-        const technologies = Array.from(project.querySelectorAll(".badge span"))
-          .map((span) => span.textContent?.toLowerCase())
-          .join(" ")
+    const projects = projectsGrid.children
+    Array.from(projects).forEach((project) => {
+      const title =
+        project.querySelector("h3")?.textContent?.toLowerCase() || ""
+      const description =
+        project.querySelector("p")?.textContent?.toLowerCase() || ""
+      const technologies = Array.from(project.querySelectorAll(".badge span"))
+        .map((span) => span.textContent?.toLowerCase())
+        .join(" ")
+      const categories =
+        (project as HTMLElement).dataset.categories?.split(",") || []
 
-        const isVisible =
-          title.includes(searchTerm) ||
-          description.includes(searchTerm) ||
-          technologies.includes(searchTerm)
+      const matchesSearch =
+        searchTerm === "" ||
+        title.includes(searchTerm) ||
+        description.includes(searchTerm) ||
+        technologies.includes(searchTerm)
 
-        ;(project as HTMLElement).style.display = isVisible ? "block" : "none"
-      })
+      const matchesCategory =
+        currentCategory === "all" || categories.includes(currentCategory)
+
+      ;(project as HTMLElement).style.display =
+        matchesSearch && matchesCategory ? "block" : "none"
     })
   }
+
+  if (searchInput) {
+    searchInput.addEventListener("input", (e) => {
+      searchTerm = (e.target as HTMLInputElement).value.toLowerCase()
+      updateProjectVisibility()
+    })
+  }
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      filterButtons.forEach((btn) => btn.setAttribute("aria-pressed", "false"))
+      button.setAttribute("aria-pressed", "true")
+      currentCategory = button.getAttribute("data-category") || "all"
+      updateProjectVisibility()
+    })
+  })
 </script>
 
 <style>
