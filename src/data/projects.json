@@ -116,6 +116,19 @@
         { "icon": "ShadcnUI", "name": "shadcn/ui" },
         { "icon": "TypeScript", "name": "TypeScript" }
       ]
+    },
+    {
+      "title": "Agency Landing Page",
+      "description": "🚀 Website Home Page Design, Agency Website UI Design",
+      "url": "https://agency-landing-lime.vercel.app",
+      "github": "https://github.com/anibalalpizar/nextjs-agency-landing",
+      "icon": "Landing",
+      "technologies": [
+        { "icon": "NextJS", "name": "Next.js" },
+        { "icon": "React", "name": "React" },
+        { "icon": "TailwindCSS", "name": "TailwindCSS" },
+        { "icon": "TypeScript", "name": "TypeScript" }
+      ]
     }
   ]
 }
