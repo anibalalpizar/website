@@ -7,6 +7,7 @@
       "github": "https://github.com/anibalalpizar/env-protector",
       "icon": "NPM",
       "downloads": 250,
+      "category": "npm",
       "technologies": [
         { "icon": "TypeScript", "name": "TypeScript" },
         { "icon": "NPM", "name": "NPM" },
@@ -19,6 +20,7 @@
       "url": "https://api-geo-cr.vercel.app",
       "github": "https://github.com/anibalalpizar/api-geo-cr",
       "icon": "Map",
+      "category": "api",
       "technologies": [
         { "icon": "NestJS", "name": "NestJS" },
         { "icon": "TypeScript", "name": "TypeScript" }
@@ -30,6 +32,7 @@
       "url": "https://json-to-xml.vercel.app",
       "github": "https://github.com/anibalalpizar/json-to-xml-converter",
       "icon": "XML",
+      "category": "tools",
       "technologies": [
         { "icon": "NextJS", "name": "Next.js" },
         { "icon": "TailwindCSS", "name": "TailwindCSS" },
@@ -43,6 +46,7 @@
       "url": "https://nextjs-shadcn-landing.vercel.app",
       "github": "https://github.com/anibalalpizar/nextjs-shadcn-landing",
       "icon": "Landing",
+      "category": "web",
       "technologies": [
         { "icon": "NextJS", "name": "Next.js" },
         { "icon": "React", "name": "React" },
@@ -58,6 +62,7 @@
       "github": "https://github.com/anibalalpizar/api-stress",
       "icon": "NPM",
       "downloads": 70,
+      "category": "npm",
       "technologies": [
         { "icon": "TypeScript", "name": "TypeScript" },
         { "icon": "NPM", "name": "NPM" },
@@ -71,6 +76,7 @@
       "github": "https://github.com/anibalalpizar/audit-log-middleware",
       "icon": "NPM",
       "downloads": 70,
+      "category": "npm",
       "technologies": [
         { "icon": "TypeScript", "name": "TypeScript" },
         { "icon": "NPM", "name": "NPM" },
@@ -84,6 +90,7 @@
       "github": "https://github.com/anibalalpizar/secure-password-checker",
       "icon": "NPM",
       "downloads": 65,
+      "category": "npm",
       "technologies": [
         { "icon": "TypeScript", "name": "TypeScript" },
         { "icon": "NPM", "name": "NPM" },
@@ -96,6 +103,7 @@
       "url": "https://terminal-portfolio-json.vercel.app",
       "github": "https://github.com/anibalalpizar/terminal-portfolio-json",
       "icon": "Terminal",
+      "category": "web",
       "technologies": [
         { "icon": "NextJS", "name": "Next.js" },
         { "icon": "React", "name": "React" },
@@ -109,6 +117,7 @@
       "url": "https://www.shortify.art",
       "github": "https://github.com/anibalalpizar/shortify",
       "icon": "Link",
+      "category": "tools",
       "technologies": [
         { "icon": "NextJS", "name": "Next.js" },
         { "icon": "React", "name": "React" },
@@ -123,6 +132,7 @@
       "url": "https://agency-landing-lime.vercel.app",
       "github": "https://github.com/anibalalpizar/nextjs-agency-landing",
       "icon": "Landing",
+      "category": "web",
       "technologies": [
         { "icon": "NextJS", "name": "Next.js" },
         { "icon": "React", "name": "React" },
