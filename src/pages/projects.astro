@@ -34,8 +34,40 @@ import { getProjectCategories } from "../utils/getProjectCategories"
   const searchInput = document.querySelector("#search") as HTMLInputElement
   const projectsGrid = document.querySelector("#projects-grid")
   const filterButtons = document.querySelectorAll(".filter-button")
-  let currentCategory = "all"
-  let searchTerm = ""
+
+  const urlParams = new URLSearchParams(window.location.search)
+  let currentCategory = urlParams.get("category") || "all"
+  let searchTerm = urlParams.get("search") || ""
+
+  if (searchInput) {
+    searchInput.value = searchTerm
+  }
+
+  filterButtons.forEach((btn) => btn.setAttribute("aria-pressed", "false"))
+
+  const activeButton = Array.from(filterButtons).find(
+    (btn) => btn.getAttribute("data-category") === currentCategory
+  )
+  if (activeButton) {
+    activeButton.setAttribute("aria-pressed", "true")
+  } else {
+    const allButton = Array.from(filterButtons).find(
+      (btn) => btn.getAttribute("data-category") === "all"
+    )
+    if (allButton) {
+      allButton.setAttribute("aria-pressed", "true")
+      currentCategory = "all"
+    }
+  }
+
+  function updateURL() {
+    const params = new URLSearchParams()
+    if (searchTerm) params.set("search", searchTerm)
+    if (currentCategory !== "all") params.set("category", currentCategory)
+
+    const newURL = `${window.location.pathname}${params.toString() ? "?" + params.toString() : ""}`
+    window.history.pushState({}, "", newURL)
+  }
 
   function updateProjectVisibility() {
     if (!projectsGrid) return
@@ -70,6 +102,7 @@ import { getProjectCategories } from "../utils/getProjectCategories"
     searchInput.addEventListener("input", (e) => {
       searchTerm = (e.target as HTMLInputElement).value.toLowerCase()
       updateProjectVisibility()
+      updateURL()
     })
   }
 
@@ -79,8 +112,11 @@ import { getProjectCategories } from "../utils/getProjectCategories"
       button.setAttribute("aria-pressed", "true")
       currentCategory = button.getAttribute("data-category") || "all"
       updateProjectVisibility()
+      updateURL()
     })
   })
+
+  updateProjectVisibility()
 </script>
 
 <style>
