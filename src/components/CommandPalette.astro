@@ -1,5 +1,5 @@
 ---
-import { GithubIcon, LinkedinIcon, DownloadIcon, CommandIcon } from "../icons";
+import { GithubIcon, LinkedinIcon, DownloadIcon } from "../icons"
 ---
 
 <div class="command-palette" id="command-palette">
@@ -8,7 +8,7 @@ import { GithubIcon, LinkedinIcon, DownloadIcon, CommandIcon } from "../icons";
     <div class="command-palette-header">
       <input
         type="text"
-        placeholder="Type a command or search..."
+        placeholder="Search social links, or press Esc to close..."
         class="command-palette-input"
       />
     </div>
@@ -41,97 +41,78 @@ import { GithubIcon, LinkedinIcon, DownloadIcon, CommandIcon } from "../icons";
   </div>
 </div>
 
-<button id="open-command-palette">
-  <CommandIcon />
-  <span> K </span>
-</button>
-
 <script>
-  let isOpen = false;
+  let isOpen = false
 
   function setupCommandPalette() {
-    console.log("Command Palette setup initialized");
-    const commandPalette = document.getElementById("command-palette");
-    const overlay = commandPalette?.querySelector(".command-palette-overlay");
-    const input = commandPalette?.querySelector(".command-palette-input");
-    const items = commandPalette?.querySelectorAll(".command-item");
+    const commandPalette = document.getElementById("command-palette")
+    const overlay = commandPalette?.querySelector(".command-palette-overlay")
+    const input = commandPalette?.querySelector(".command-palette-input")
+    const items = commandPalette?.querySelectorAll(".command-item")
 
     function togglePalette(show: boolean | undefined) {
-      isOpen = show ?? !isOpen;
+      isOpen = show ?? !isOpen
       if (commandPalette) {
-        commandPalette.style.display = isOpen ? "block" : "none";
+        commandPalette.style.display = isOpen ? "block" : "none"
         if (isOpen) {
-          (input as HTMLInputElement)?.focus();
+          ;(input as HTMLInputElement)?.focus()
         }
       }
     }
 
     function handleKeydown(e: {
-      key: string;
-      metaKey: any;
-      ctrlKey: any;
-      preventDefault: () => void;
+      key: string
+      metaKey: any
+      ctrlKey: any
+      preventDefault: () => void
     }) {
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
-        e.preventDefault();
-        togglePalette(true);
+        e.preventDefault()
+        togglePalette(true)
       } else if (e.key === "Escape" && isOpen) {
-        togglePalette(false);
+        togglePalette(false)
       }
     }
 
-    overlay?.addEventListener("click", () => togglePalette(false));
+    overlay?.addEventListener("click", () => togglePalette(false))
 
     items?.forEach((item) => {
       item.addEventListener("click", () => {
-        const url = item.getAttribute("data-url");
+        const url = item.getAttribute("data-url")
         if (url) {
           if (url.startsWith("http")) {
-            window.open(url, "_blank");
+            window.open(url, "_blank")
           } else {
-            window.location.href = url;
+            window.location.href = url
           }
         }
-        togglePalette(false);
-      });
-    });
+        togglePalette(false)
+      })
+    })
 
     input?.addEventListener("input", (e) => {
-      const value = (e.target as HTMLInputElement).value.toLowerCase();
+      const value = (e.target as HTMLInputElement).value.toLowerCase()
       items?.forEach((item) => {
-        const text = item.textContent?.toLowerCase() || "";
-        (item as HTMLElement).style.display = text.includes(value)
+        const text = item.textContent?.toLowerCase() || ""
+        ;(item as HTMLElement).style.display = text.includes(value)
           ? "flex"
-          : "none";
-      });
-    });
+          : "none"
+      })
+    })
 
-    document.addEventListener("keydown", handleKeydown);
+    document.addEventListener("keydown", handleKeydown)
 
     document
       .getElementById("open-command-palette")
       ?.addEventListener("click", () => {
-        togglePalette(true);
-      });
+        togglePalette(true)
+      })
   }
 
-  document.addEventListener("DOMContentLoaded", setupCommandPalette);
+  document.addEventListener("DOMContentLoaded", setupCommandPalette)
 </script>
 
 <style>
-  #open-command-palette {
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-    padding: 0.5rem;
-    background: var(--card-background);
-    border: none;
-    border-radius: 50%;
-    color: var(--text-main);
-    cursor: pointer;
-    transition: background-color 0.15s ease;
-  }
-
   .command-palette {
     display: none;
     position: fixed;
