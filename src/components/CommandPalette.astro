@@ -8,11 +8,52 @@ import { GithubIcon, LinkedinIcon, DownloadIcon } from "../icons"
     <div class="command-palette-header">
       <input
         type="text"
-        placeholder="Search social links, or press Esc to close..."
+        placeholder="Search commands, or press Esc to close..."
         class="command-palette-input"
       />
     </div>
     <div class="command-palette-content">
+      <div class="command-group">
+        <div class="command-group-heading">Navigation</div>
+        <button class="command-item" data-url="/">
+          <span>Go to Home</span>
+        </button>
+        <button class="command-item" data-url="/about">
+          <span>Go to About</span>
+        </button>
+        <button class="command-item" data-url="/projects">
+          <span>View All Projects</span>
+        </button>
+      </div>
+
+      <div class="command-group">
+        <div class="command-group-heading">Experience</div>
+        <button
+          class="command-item"
+          data-url="/2024/internship-at-tech-solutions"
+        >
+          <span>Internship at Tech Solutions</span>
+        </button>
+        <button
+          class="command-item"
+          data-url="/2024/microsoft-student-ambassador"
+        >
+          <span>Microsoft Student Ambassador</span>
+        </button>
+        <button
+          class="command-item"
+          data-url="/2023/inventory-management-system-for-non-profit"
+        >
+          <span>Inventory Management System</span>
+        </button>
+        <button
+          class="command-item"
+          data-url="/2022/medical-prescription-app-development"
+        >
+          <span>Medical Prescription App</span>
+        </button>
+      </div>
+
       <div class="command-group">
         <div class="command-group-heading">Social</div>
         <button
@@ -30,6 +71,7 @@ import { GithubIcon, LinkedinIcon, DownloadIcon } from "../icons"
           <span>Visit LinkedIn</span>
         </button>
       </div>
+
       <div class="command-group">
         <div class="command-group-heading">Actions</div>
         <a class="command-item" href="/Aníbal_CV.pdf" download>
