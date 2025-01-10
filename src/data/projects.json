@@ -139,6 +139,20 @@
         { "icon": "TailwindCSS", "name": "TailwindCSS" },
         { "icon": "TypeScript", "name": "TypeScript" }
       ]
+    },
+    {
+      "title": "Website Landing Page",
+      "description": "🚀 Website Landing Page Design",
+      "url": "https://nextjs-website-landing.vercel.app",
+      "github": "https://github.com/anibalalpizar/nextjs-website-landing",
+      "icon": "Landing",
+      "category": "web",
+      "technologies": [
+        { "icon": "NextJS", "name": "Next.js" },
+        { "icon": "React", "name": "React" },
+        { "icon": "TailwindCSS", "name": "TailwindCSS" },
+        { "icon": "TypeScript", "name": "TypeScript" }
+      ]
     }
   ]
 }
