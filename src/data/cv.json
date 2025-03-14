@@ -24,6 +24,12 @@
   },
   "work": [
     {
+      "name": "Grupo Asesor",
+      "position": "Software Engineer",
+      "startDate": "2024-01-01",
+      "endDate": null
+    },
+    {
       "name": "Internship At Tech Solutions",
       "position": "Full Stack Developer",
       "startDate": "2024-04-01",
