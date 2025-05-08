@@ -12,12 +12,15 @@ import { work } from "../../data/cv.json"
         if (endDate != null) {
           timeDisplay = new Date(endDate).getFullYear()
         } else {
-          const startDate = new Date(2025, 0, 1)
-          const currentDate = new Date()
-          const monthsDiff =
-            (currentDate.getFullYear() - startDate.getFullYear()) * 12 +
-            (currentDate.getMonth() - startDate.getMonth())
-          timeDisplay = `Current (${monthsDiff} months)`
+          const date = new Date()
+          const month = date.getMonth() + 1
+          const year = date.getFullYear()
+          const startDate = new Date(year, 0, 1)
+          const months = month - 1
+          const years = year - startDate.getFullYear()
+          const monthDisplay = months > 0 ? `${months} months` : ""
+          const yearDisplay = years > 0 ? `${years} years` : ""
+          timeDisplay = `Present (${yearDisplay}${monthDisplay})`
         }
 
         return (
